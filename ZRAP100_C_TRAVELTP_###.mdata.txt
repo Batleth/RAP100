@@ -59,10 +59,18 @@ annotate view ZRAP100_C_TRAVELTP_### with
   Description;
 
   @UI: {
-        lineItem:       [ { position: 100, importance: #HIGH } ],
-        identification: [ { position: 100 } ],
-        textArrangement: #TEXT_ONLY
-  }  
+    lineItem:       [ { position: 100, importance: #HIGH }
+                      //,{ type: #FOR_ACTION, dataAction: 'copyTravel', label: 'Copy Travel' }
+                      //,{ type: #FOR_ACTION, dataAction: 'acceptTravel', label: 'Accept Travel' }
+                      //,{ type: #FOR_ACTION, dataAction: 'rejectTravel', label: 'Reject Travel' }
+         ],
+    identification: [ { position: 100 }
+                     ,{ type: #FOR_ACTION, dataAction: 'deductDiscount', label: 'Deduct Discount' }
+                     //,{ type: #FOR_ACTION, dataAction: 'acceptTravel', label: 'Accept Travel' }
+                     //,{ type: #FOR_ACTION, dataAction: 'rejectTravel', label: 'Reject Travel' }
+         ],
+      textArrangement: #TEXT_ONLY
+  }
   OverallStatus;
 
   @UI.identification: [ { position: 110 } ]
