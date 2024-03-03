@@ -1,13 +1,15 @@
-CLASS lcl_handler DEFINITION INHERITING FROM cl_abap_behavior_handler.
-  PRIVATE SECTION.
-    METHODS:
-      get_global_authorizations FOR GLOBAL AUTHORIZATION
-        IMPORTING
-        REQUEST requested_authorizations FOR Travel
-        RESULT result.
+class ZRAP100_BP_TRAVELTP_### definition
+  public
+  abstract
+  final
+  for behavior of ZRAP100_R_TRAVELTP_### .
+
+public section.
+protected section.
+private section.
 ENDCLASS.
 
-CLASS lcl_handler IMPLEMENTATION.
-  METHOD get_global_authorizations.
-  ENDMETHOD.
+
+
+CLASS ZRAP100_BP_TRAVELTP_### IMPLEMENTATION.
 ENDCLASS.
