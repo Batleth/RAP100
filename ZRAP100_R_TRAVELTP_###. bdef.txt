@@ -26,6 +26,8 @@ early numbering
   update;
   delete;
 
+ determination setStatusToOpen on modify { create; }
+
   draft action Edit;
   draft action Activate;
   draft action Discard;
