@@ -1,135 +1,79 @@
-@Metadata.layer: #CORE
+@Metadata.layer: #CUSTOMER
 @UI: {
   headerInfo: {
-    typeName: 'Travel', 
-    typeNamePlural: 'Travels'
+    typeName: 'Travel',
+    typeNamePlural: 'Travels',
+    imageUrl: 'Attachment',  //case-sensitive 
+    description: { type: #STANDARD, value: 'TravelID' } //case-sensitive
   }
 }
 annotate view ZRAP100_C_TRAVELTP_### with
 {
   @UI.facet: [ {
-    id: 'idIdentification', 
-    type: #IDENTIFICATION_REFERENCE, 
-    label: 'Travel', 
-    position: 10 
+    id: 'idIdentification',
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Travel',
+    position: 10
   } ]
-  @UI.lineItem: [ {
-    position: 10 , 
-    importance: #MEDIUM
-  } ]
-  @UI.identification: [ {
-    position: 10 
-  } ]
-  travelId;
   
-  @UI.lineItem: [ {
-    position: 20 , 
-    importance: #MEDIUM
-  } ]
-  @UI.identification: [ {
-    position: 20 
-  } ]
-  agencyId;
-  
-  @UI.lineItem: [ {
-    position: 30 , 
-    importance: #MEDIUM
-  } ]
-  @UI.identification: [ {
-    position: 30 
-  } ]
-  customerId;
-  
-  @UI.lineItem: [ {
-    position: 40 , 
-    importance: #MEDIUM
-  } ]
-  @UI.identification: [ {
-    position: 40 
-  } ]
-  beginDate;
-  
-  @UI.lineItem: [ {
-    position: 50 , 
-    importance: #MEDIUM
-  } ]
-  @UI.identification: [ {
-    position: 50 
-  } ]
-  endDate;
-  
-  @UI.lineItem: [ {
-    position: 60 , 
-    importance: #MEDIUM
-  } ]
-  @UI.identification: [ {
-    position: 60 
-  } ]
-  bookingFee;
-  
-  @UI.lineItem: [ {
-    position: 70 , 
-    importance: #MEDIUM
-  } ]
-  @UI.identification: [ {
-    position: 70 
-  } ]
-  totalPrice;
-  
-  @UI.lineItem: [ {
-    position: 80 , 
-    importance: #MEDIUM
-  } ]
-  @UI.identification: [ {
-    position: 80 
-  } ]
-  currencyCode;
-  
-  @UI.lineItem: [ {
-    position: 90 , 
-    importance: #MEDIUM
-  } ]
-  @UI.identification: [ {
-    position: 90 
-  } ]
-  description;
-  
-  @UI.lineItem: [ {
-    position: 100 , 
-    importance: #MEDIUM
-  } ]
-  @UI.identification: [ {
-    position: 100 
-  } ]
-  overallStatus;
-  
-  @UI.lineItem: [ {
-    position: 110 , 
-    importance: #MEDIUM
-  } ]
-  @UI.identification: [ {
-    position: 110 
-  } ]
-  attachment;
-  
-  @UI.lineItem: [ {
-    position: 120 , 
-    importance: #MEDIUM
-  } ]
-  @UI.identification: [ {
-    position: 120 
-  } ]
-  mimeType;
-  
-  @UI.lineItem: [ {
-    position: 130 , 
-    importance: #MEDIUM
-  } ]
-  @UI.identification: [ {
-    position: 130 
-  } ]
-  fileName;
-  
+  @UI: {
+        lineItem:       [ { position: 10, importance: #HIGH } ],
+        identification: [ { position: 10 } ],
+        selectionField: [ { position: 10 } ]
+  }       
+  TravelID;
+
+  @UI: {
+        lineItem:       [ { position: 20, importance: #HIGH } ],
+        identification: [ { position: 20 } ],
+        selectionField: [ { position: 20 } ]
+  }       
+  AgencyID;
+
+  @UI: {
+        lineItem:       [ { position: 30, importance: #HIGH } ],
+        identification: [ { position: 30 } ],
+        selectionField: [ { position: 30 } ]
+  }      
+  CustomerID;
+
+  @UI: {
+        lineItem:       [ { position: 40, importance: #MEDIUM } ],
+        identification: [ { position: 40 } ]
+  }      
+  BeginDate;
+
+  @UI: {
+        lineItem:       [ { position: 50, importance: #MEDIUM } ],
+        identification: [ { position: 50 } ]
+  }    
+  EndDate;
+
+  @UI.identification: [ { position: 60 } ]
+  BookingFee;
+
+  @UI.identification: [ { position: 70 } ]
+  TotalPrice;
+
+  @UI.identification: [ { position: 90 } ]
+  Description;
+
+  @UI: {
+        lineItem:       [ { position: 100, importance: #HIGH } ],
+        identification: [ { position: 100 } ],
+        textArrangement: #TEXT_ONLY
+  }  
+  OverallStatus;
+
+  @UI.identification: [ { position: 110 } ]
+  Attachment;
+
   @UI.hidden: true
-  localLastChangedAt;
+  MimeType;
+
+  @UI.hidden: true
+  FileName;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
 }
