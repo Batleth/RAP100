@@ -38,6 +38,7 @@ early numbering
   validation validateDates on save { create; field BeginDate, EndDate; }
 
   action deductDiscount parameter /dmo/a_travel_discount result [1] $self;
+  factory action copyTravel [1];
 
   draft action Edit;
   draft action Activate;
