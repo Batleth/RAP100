@@ -28,3 +28,4 @@ define table zrap100_dtrav590 {
   "%admin"           : include sych_bdl_draft_admin_inc;
 
 }
+
