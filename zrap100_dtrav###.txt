@@ -1,0 +1,30 @@
+@EndUserText.label : '##GENERATED #'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #L
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zrap100_dtrav590 {
+  key client         : abap.clnt not null;
+  key travelid       : /dmo/travel_id not null;
+  agencyid           : /dmo/agency_id;
+  customerid         : /dmo/customer_id;
+  begindate          : /dmo/begin_date;
+  enddate            : /dmo/end_date;
+  @Semantics.amount.currencyCode : 'zrap100_dtrav590.currencycode'
+  bookingfee         : /dmo/booking_fee;
+  @Semantics.amount.currencyCode : 'zrap100_dtrav590.currencycode'
+  totalprice         : /dmo/total_price;
+  currencycode       : /dmo/currency_code;
+  description        : /dmo/description;
+  overallstatus      : /dmo/overall_status;
+  attachment         : /dmo/attachment;
+  mimetype           : /dmo/mime_type;
+  filename           : /dmo/filename;
+  createdby          : abp_creation_user;
+  createdat          : abp_creation_tstmpl;
+  locallastchangedby : abp_locinst_lastchange_user;
+  locallastchangedat : abp_locinst_lastchange_tstmpl;
+  lastchangedat      : abp_lastchange_tstmpl;
+  "%admin"           : include sych_bdl_draft_admin_inc;
+
+}
