@@ -1,0 +1,15 @@
+class ZRAP100_BP_TRAVELTP_### definition
+  public
+  abstract
+  final
+  for behavior of ZRAP100_R_TRAVELTP_### .
+
+public section.
+protected section.
+private section.
+ENDCLASS.
+
+
+
+CLASS ZRAP100_BP_TRAVELTP_### IMPLEMENTATION.
+ENDCLASS.
