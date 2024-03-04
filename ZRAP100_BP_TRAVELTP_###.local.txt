@@ -25,6 +25,11 @@ CLASS lcl_handler DEFINITION INHERITING FROM cl_abap_behavior_handler.
       IMPORTING keys FOR ACTION Travel~deductDiscount RESULT result.
     METHODS copyTravel FOR MODIFY
       IMPORTING keys FOR ACTION Travel~copyTravel.
+    METHODS acceptTravel FOR MODIFY
+      IMPORTING keys FOR ACTION Travel~acceptTravel RESULT result.
+
+    METHODS rejectTravel FOR MODIFY
+      IMPORTING keys FOR ACTION Travel~rejectTravel RESULT result.
 ENDCLASS.
 
 CLASS lcl_handler IMPLEMENTATION.
@@ -358,4 +363,49 @@ CLASS lcl_handler IMPLEMENTATION.
     " set the new BO instances
     mapped-travel   =  mapped_create-travel .
   ENDMETHOD.
+  METHOD acceptTravel.
+      " modify travel instance
+    MODIFY ENTITIES OF zrap100_r_traveltp_### IN LOCAL MODE
+      ENTITY Travel
+        UPDATE FIELDS ( OverallStatus )
+        WITH VALUE #( FOR key IN keys ( %tky          = key-%tky
+                                        OverallStatus = travel_status-accepted ) )  " 'A'
+    FAILED failed
+    REPORTED reported.
+
+    " read changed data for action result
+    READ ENTITIES OF zrap100_r_traveltp_### IN LOCAL MODE
+      ENTITY Travel
+        ALL FIELDS WITH
+        CORRESPONDING #( keys )
+      RESULT DATA(travels).
+
+    " set the action result parameter
+    result = VALUE #( FOR travel IN travels ( %tky   = travel-%tky
+                                              %param = travel ) ).
+
+  ENDMETHOD.
+
+  METHOD rejectTravel.
+    " modify travel instance(s)
+    MODIFY ENTITIES OF zrap100_r_traveltp_### IN LOCAL MODE
+      ENTITY Travel
+        UPDATE FIELDS ( OverallStatus )
+        WITH VALUE #( FOR key IN keys ( %tky          = key-%tky
+                                        OverallStatus = travel_status-rejected ) )  " 'X'
+    FAILED failed
+    REPORTED reported.
+
+    " read changed data for action result
+    READ ENTITIES OF zrap100_r_traveltp_### IN LOCAL MODE
+      ENTITY Travel
+        ALL FIELDS WITH
+        CORRESPONDING #( keys )
+      RESULT DATA(travels).
+
+    " set the action result parameter
+    result = VALUE #( FOR travel IN travels ( %tky   = travel-%tky
+                                              %param = travel ) ).
+  ENDMETHOD.
+
 ENDCLASS.
