@@ -28,8 +28,8 @@ early numbering
   EndDate;
 
   create;
-  update;
-  delete;
+  update ( features: instance );
+  delete ( features: instance );
 
   determination setStatusToOpen on modify { create; }
 
@@ -37,13 +37,13 @@ early numbering
   validation validateCustomer on save { create; field CustomerID; }
   validation validateDates on save { create; field BeginDate, EndDate; }
 
-  action deductDiscount parameter /dmo/a_travel_discount result [1] $self;
+  action ( features: instance ) deductDiscount parameter /dmo/a_travel_discount result [1] $self;
   factory action copyTravel [1];
 
-  action acceptTravel result [1] $self;
-  action rejectTravel result [1] $self;
+  action ( features: instance ) acceptTravel result [1] $self;
+  action ( features: instance ) rejectTravel result [1] $self;
 
-  draft action Edit;
+  draft action ( features: instance ) Edit;
   draft action Activate;
   draft action Discard;
   draft action Resume;
