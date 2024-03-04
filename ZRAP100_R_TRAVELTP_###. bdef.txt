@@ -40,6 +40,9 @@ early numbering
   action deductDiscount parameter /dmo/a_travel_discount result [1] $self;
   factory action copyTravel [1];
 
+  action acceptTravel result [1] $self;
+  action rejectTravel result [1] $self;
+
   draft action Edit;
   draft action Activate;
   draft action Discard;
